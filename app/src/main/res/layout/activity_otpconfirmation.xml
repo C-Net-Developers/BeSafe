@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".OTPConfirmation">
 
     <ImageView
@@ -45,7 +46,6 @@
         android:layout_marginStart="55dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="49dp"
-        android:background="@android:color/darker_gray"
         android:ems="10"
         android:hint="OTP"
         android:inputType="textPersonName"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <ImageView
@@ -47,7 +48,6 @@
         android:layout_marginStart="55dp"
         android:layout_marginEnd="55dp"
         android:layout_marginBottom="13dp"
-        android:background="@android:color/darker_gray"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
@@ -65,7 +65,6 @@
         android:layout_marginTop="34dp"
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="169dp"
-        android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/phoneNumber"
         app:layout_constraintHorizontal_bias="0.0"
@@ -80,7 +79,6 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="42dp"
-        android:background="@android:color/darker_gray"
         android:ems="10"
         android:hint="Contact Number"
         android:inputType="textPersonName"
