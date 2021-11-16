@@ -11,7 +11,9 @@
         android:theme="@style/Theme.BeSafe">
         <activity
             android:name=".HomeScreen"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".OTPConfirmation"
             android:exported="true" />
