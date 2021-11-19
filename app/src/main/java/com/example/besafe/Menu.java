@@ -5,6 +5,7 @@ import static android.view.View.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,13 +13,15 @@ import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
-    TextView addnum,instruct;
+    TextView addnum,instruct,registeredNumber,nearbyPoliceStations;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         addnum=findViewById(R.id.addnum);
         instruct=findViewById(R.id.instruct);
+        registeredNumber=findViewById(R.id.regnum);
+        nearbyPoliceStations=findViewById(R.id.nearbyPolice);
         addnum.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,11 +29,30 @@ public class Menu extends AppCompatActivity {
                 startActivity(number);
             }
         });
+
+        /*registeredNumber.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent viewNum=new Intent(Menu.this,ViewRegisteredNumbers.class);
+                startActivity(viewNum);
+            }
+        });*/
+
         instruct.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent instr=new Intent(Menu.this,Instructions.class);
                 startActivity(instr);
+            }
+        });
+
+        nearbyPoliceStations.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri=Uri.parse("geo:0,0?q=Police Station");
+                Intent i=new Intent(Intent.ACTION_VIEW,uri);
+                i.setPackage("com.google.android.apps.maps");
+                startActivity(i);
             }
         });
     }

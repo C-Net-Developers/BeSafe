@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public Cursor getdata(){
         SQLiteDatabase DB=this.getWritableDatabase();
-        Cursor cursor=DB.rawQuery("Select * from Registered_Contacts",null);
+        Cursor cursor=DB.rawQuery("Select * from Registered_Contacts",null); //return data in form of cursor object
         return cursor;
     }
 

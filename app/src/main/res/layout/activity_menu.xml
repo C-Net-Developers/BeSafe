@@ -8,6 +8,20 @@
     android:backgroundTint="#2139BA"
     tools:context=".Menu">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="117dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="293dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
@@ -95,7 +109,7 @@
             app:drawableTopCompat="@drawable/reg_user_24" />
 
         <TextView
-            android:id="@+id/delnum"
+            android:id="@+id/nearbyPolice"
             android:layout_width="170dp"
             android:layout_height="match_parent"
             android:background="@drawable/menucard"

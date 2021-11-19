@@ -48,9 +48,9 @@ public class Add_Number extends AppCompatActivity {
                 }
                 AlertDialog.Builder builder=new AlertDialog.Builder(Add_Number.this);
                 builder.setCancelable(true);
-                builder.setTitle("Emergency numbers");
-                builder.setMessage(buffer.toString());
-                builder.show();
+                builder.setTitle("Emergency numbers");   //set title for AlertDialog
+                builder.setMessage(buffer.toString());   //To display name and contact which is saved on buffer
+                builder.show();                          //Display alert message with all values
             }
         });
     }
