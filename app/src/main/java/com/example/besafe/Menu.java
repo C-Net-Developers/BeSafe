@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
-    TextView addnum,instruct,registeredNumber,nearbyPoliceStations;
+    TextView addnum,instruct,registeredNumber,nearbyPoliceStations,emergencynum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,7 @@ public class Menu extends AppCompatActivity {
         instruct=findViewById(R.id.instruct);
         registeredNumber=findViewById(R.id.regnum);
         nearbyPoliceStations=findViewById(R.id.nearbyPolice);
+        emergencynum=findViewById(R.id.emergencynum);
         addnum.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +54,13 @@ public class Menu extends AppCompatActivity {
                 Intent i=new Intent(Intent.ACTION_VIEW,uri);
                 i.setPackage("com.google.android.apps.maps");
                 startActivity(i);
+            }
+        });
+        emergencynum.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent instr=new Intent(Menu.this,EmergencyNumber.class);
+                startActivity(instr);
             }
         });
     }
