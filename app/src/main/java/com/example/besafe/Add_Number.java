@@ -30,6 +30,7 @@ public class Add_Number extends AppCompatActivity {
                 String contactTXT= contact.getText().toString();
                 Boolean check_numbers=DB.insertnumbers(nameTXT,contactTXT);
 
+
                 if(check_numbers==true){
                     Toast.makeText(Add_Number.this,"Contact added successfully",Toast.LENGTH_SHORT).show();
 /*

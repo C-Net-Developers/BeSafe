@@ -3,7 +3,9 @@ package com.example.besafe;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +26,7 @@ public class OTPConfirmation extends AppCompatActivity {
     Button register;
     String phoneNumber,otpId;
     FirebaseAuth mAuth;
-    @Override
+       @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -86,11 +88,15 @@ public class OTPConfirmation extends AppCompatActivity {
 
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        SharedPreferences sharedPreferences=this.getSharedPreferences("com.example.besafe", Context.MODE_PRIVATE);
+
         mAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull com.google.android.gms.tasks.Task<AuthResult> task) {
                         if (task.isSuccessful())
                         {
+
+                           sharedPreferences.edit().putString("status","Active").apply();
                             Intent intentMain = new Intent(OTPConfirmation.this,HomeScreen.class);
                             startActivity(intentMain);
                             finish();

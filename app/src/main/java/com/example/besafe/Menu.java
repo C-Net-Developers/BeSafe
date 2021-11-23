@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
-    TextView addnum,instruct,registeredNumber,nearbyPoliceStations,emergencynum;
+    TextView addnum,instruct,registeredNumber,nearbyPoliceStations,emergencynum,editSOS,viewRegNum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,8 @@ public class Menu extends AppCompatActivity {
         registeredNumber=findViewById(R.id.regnum);
         nearbyPoliceStations=findViewById(R.id.nearbyPolice);
         emergencynum=findViewById(R.id.emergencynum);
+        editSOS=findViewById(R.id.editsos);
+        viewRegNum=findViewById(R.id.regnum);
         addnum.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +63,20 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent instr=new Intent(Menu.this,EmergencyNumber.class);
                 startActivity(instr);
+            }
+        });
+        editSOS.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sos=new Intent(Menu.this,EditSOSMessage.class);
+                startActivity(sos);
+            }
+        });
+        viewRegNum.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent reg=new Intent(Menu.this,ViewRegisteredNumbers.class);
+                startActivity(reg);
             }
         });
     }
