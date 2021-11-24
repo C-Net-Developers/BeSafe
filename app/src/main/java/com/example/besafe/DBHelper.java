@@ -40,12 +40,17 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-
-    public Cursor getdata(){
+    /*
+        public Cursor getdata(){
+            SQLiteDatabase DB=this.getWritableDatabase();
+            Cursor cursor=DB.rawQuery("Select * from Registered_Contacts",null); //return data in form of cursor object
+            return cursor;
+        }
+    */
+    public Cursor viewData(){
         SQLiteDatabase DB=this.getWritableDatabase();
         Cursor cursor=DB.rawQuery("Select * from Registered_Contacts",null); //return data in form of cursor object
         return cursor;
     }
-
 
 }
