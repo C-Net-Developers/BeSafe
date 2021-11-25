@@ -41,7 +41,7 @@ public class Add_Number extends AppCompatActivity {
                     Toast.makeText(Add_Number.this,"Some error occurred while adding contact",Toast.LENGTH_SHORT).show();
                 }
 
-                Cursor res=DB.getdata();
+                Cursor res=DB.viewData();
                 StringBuffer buffer=new StringBuffer();
                 while(res.moveToNext()){
                     buffer.append("Name :"+res.getString(0)+"\n");

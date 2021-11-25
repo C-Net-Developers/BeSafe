@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class Menu extends AppCompatActivity {
 
-    TextView addnum,instruct,registeredNumber,nearbyPoliceStations,emergencynum,editSOS,viewRegNum;
+    TextView addnum,instruct,registeredNumber,nearbyPoliceStations,emergencynum,editsos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +23,8 @@ public class Menu extends AppCompatActivity {
         registeredNumber=findViewById(R.id.regnum);
         nearbyPoliceStations=findViewById(R.id.nearbyPolice);
         emergencynum=findViewById(R.id.emergencynum);
-        editSOS=findViewById(R.id.editsos);
-        viewRegNum=findViewById(R.id.regnum);
+        editsos=findViewById(R.id.editsos);
+        //registeredNumber=findViewById(R.id.registeredNumber);
         addnum.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,13 +33,13 @@ public class Menu extends AppCompatActivity {
             }
         });
 
-        /*registeredNumber.setOnClickListener(new OnClickListener() {
+        registeredNumber.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent viewNum=new Intent(Menu.this,ViewRegisteredNumbers.class);
                 startActivity(viewNum);
             }
-        });*/
+        });
 
         instruct.setOnClickListener(new OnClickListener() {
             @Override
@@ -65,19 +65,15 @@ public class Menu extends AppCompatActivity {
                 startActivity(instr);
             }
         });
-        editSOS.setOnClickListener(new OnClickListener() {
+
+        editsos.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent sos=new Intent(Menu.this,EditSOSMessage.class);
-                startActivity(sos);
+                Intent instr=new Intent(Menu.this,EditSOSMessage.class);
+                startActivity(instr);
             }
         });
-        viewRegNum.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent reg=new Intent(Menu.this,ViewRegisteredNumbers.class);
-                startActivity(reg);
-            }
-        });
+
+
     }
 }
