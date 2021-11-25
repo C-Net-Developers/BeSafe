@@ -53,7 +53,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:id="@+id/registeredNumbers"
+        android:id="@+id/list_view"
         android:layout_width="409dp"
         android:layout_height="442dp"
         android:layout_marginStart="1dp"
