@@ -46,6 +46,20 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor cursor=DB.rawQuery("Select * from Registered_Contacts",null); //return data in form of cursor object
         return cursor;
     }
+    public Boolean deletenumber(String name)
+    {
+        SQLiteDatabase DB=this.getWritableDatabase();
+        Cursor cursor=DB.rawQuery("Select * from Registered_Contacts",null);
+        if(cursor.getCount()>0)
+        {
+            long result=DB.delete("Registered_Contacts","Name=?",new String[]{name});
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 
 }
