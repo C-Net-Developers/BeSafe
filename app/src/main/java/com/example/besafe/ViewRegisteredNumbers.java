@@ -24,9 +24,9 @@ public class ViewRegisteredNumbers extends AppCompatActivity {
 
 
     DBHelper db;
-    ArrayList<String> listItem;
-    ArrayAdapter adapter;
-    ListView numlist;
+    Button backBtn;
+    ListView listView;
+    List list=new ArrayList<String>();
 
     ArrayAdapter adapter;
     @Override
