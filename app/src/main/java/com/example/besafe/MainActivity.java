@@ -11,12 +11,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.hbb20.CountryCodePicker;
 
 public class MainActivity extends AppCompatActivity {
 
     CountryCodePicker ccp;
     EditText name,phoneNumber;
+    AwesomeValidation awesomeValidation;
     Button next;
 
 
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         SharedPreferences sharedPreferences=this.getSharedPreferences("com.example.besafe", Context.MODE_PRIVATE);
 
         if(!sharedPreferences.contains("status"))
@@ -52,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         phoneNumber=(EditText) findViewById(R.id.phoneNumber);
         ccp.registerCarrierNumberEditText(phoneNumber);
         next=(Button)findViewById(R.id.next);
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
+
+        awesomeValidation.addValidation(this,R.id.phoneNumber,"[5-9]{1}[0-9]{9}$",R.string.invalid_mobile);
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +70,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("EXIT", true);
                 startActivity(intent);
+
+                if(awesomeValidation.validate()) {
+                      //  Toast.makeText(MainActivity.this, "Contact added successfully", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Invalid data entered",Toast.LENGTH_SHORT).show();
+                }
+
                 if(getIntent().getBooleanExtra("Exit",false))
                 {
                     finish();

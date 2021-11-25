@@ -43,5 +43,5 @@ dependencies {
     implementation 'com.hbb20:ccp:2.5.4' //for country code picker
     implementation 'com.ebanx:swipe-button:0.8.3'//swipe button
     implementation 'com.google.android.gms:play-services-location:18.0.0'
-
+    implementation 'com.basgeekball:awesome-validation:4.3'
 }
