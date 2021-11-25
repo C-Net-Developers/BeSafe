@@ -34,11 +34,28 @@ public class HomeScreen extends AppCompatActivity {
     double latitude,longitude;
     DBHelper DB;
     String contact,message;
+    //back button pressing twice variables
+    private long backPressedTime;
+    private Toast backToast;
+    @Override
+    public void onBackPressed() {
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            super.onBackPressed();
+            return;
+        } else {
+            backToast = Toast.makeText(getBaseContext(), "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+
+        backPressedTime = System.currentTimeMillis();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
         sos=findViewById(R.id.sos);
         DB=new DBHelper(this);
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(HomeScreen.this);

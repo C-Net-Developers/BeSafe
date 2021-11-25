@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.hbb20.CountryCodePicker;
 
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText name,phoneNumber;
     Button next;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
         if(!sharedPreferences.contains("status"))
         {
-            sharedPreferences.edit().putString("status","Active").apply();
+            sharedPreferences.edit().putString("status","Inactive").apply();
         }
 
         if(sharedPreferences.getString("status","Inactive").equals("Active"))
         {
             Intent intent=new Intent(MainActivity.this,HomeScreen.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("EXIT", true);
             startActivity(intent);
+            if(getIntent().getBooleanExtra("Exit",false))
+            {
+                finish();
+            }
+            else{
+                finish();
+            }
         }
 
 
@@ -46,7 +57,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,OTPConfirmation.class);
                 intent.putExtra("mobile",ccp.getFullNumberWithPlus().replace(" ",""));
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("EXIT", true);
                 startActivity(intent);
+                if(getIntent().getBooleanExtra("Exit",false))
+                {
+                    finish();
+                }
+                else{
+                    finish();
+                }
             }
         });
     }
