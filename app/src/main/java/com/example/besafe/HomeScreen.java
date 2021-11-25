@@ -1,8 +1,10 @@
 package com.example.besafe;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -72,7 +74,7 @@ public class HomeScreen extends AppCompatActivity {
                     ActivityCompat.requestPermissions(HomeScreen.this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION},100);
                 }
                 //retrieving mobile numbers
-                Cursor res=DB.viewData();
+                Cursor res=DB.getdata();
                 if(res.getCount()==0)
                 {
                     //no data selected
