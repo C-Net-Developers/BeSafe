@@ -65,26 +65,28 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,OTPConfirmation.class);
-                intent.putExtra("mobile",ccp.getFullNumberWithPlus().replace(" ",""));
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("EXIT", true);
-                startActivity(intent);
+
 
                 if(awesomeValidation.validate()) {
                       //  Toast.makeText(MainActivity.this, "Contact added successfully", Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(MainActivity.this,OTPConfirmation.class);
+                    intent.putExtra("mobile",ccp.getFullNumberWithPlus().replace(" ",""));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    intent.putExtra("EXIT", true);
+                    startActivity(intent);
+                    if(getIntent().getBooleanExtra("Exit",false))
+                    {
+                        finish();
+                    }
+                    else{
+                        finish();
+                    }
                 }
                 else{
                     Toast.makeText(MainActivity.this,"Invalid data entered",Toast.LENGTH_SHORT).show();
                 }
 
-                if(getIntent().getBooleanExtra("Exit",false))
-                {
-                    finish();
-                }
-                else{
-                    finish();
-                }
+
             }
         });
     }
