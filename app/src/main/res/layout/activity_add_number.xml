@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Add_Number">
 
     <TextView
@@ -11,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
-        android:drawableLeft="@drawable/person_add24"
+        android:drawableLeft="@drawable/addiconinside"
         android:drawablePadding="15dp"
         android:text="Add Number"
         android:textSize="34sp"
@@ -53,12 +54,12 @@
     <Button
         android:id="@+id/savebtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="64dp"
-        android:textColor="@color/white"
-        android:text="Save"
         android:background="@drawable/roundedbutton"
-        android:textSize="18dp"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

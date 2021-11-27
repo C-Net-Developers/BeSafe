@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewRegisteredNumbers">
+    tools:context=".ViewRegisteredNumbers"
+    android:background="@drawable/background">
 
     <ImageView
         android:id="@+id/imageView6"
@@ -27,7 +28,7 @@
         android:layout_marginStart="62dp"
         android:layout_marginEnd="87dp"
         android:layout_marginBottom="531dp"
-        android:drawableLeft="@drawable/reg_user_24"
+        android:drawableLeft="@drawable/registeredinside"
         android:text="Registered Numbers"
         android:textAlignment="center"
         android:textColor="@color/black"
