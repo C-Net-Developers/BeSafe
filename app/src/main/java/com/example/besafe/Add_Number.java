@@ -50,6 +50,8 @@ public class Add_Number extends AppCompatActivity {
                     if(check_numbers==true) {
 
                         Toast.makeText(Add_Number.this, "Contact added successfully", Toast.LENGTH_SHORT).show();
+                        name.setText("");
+                        contact.setText("");
 
                     }
                 }

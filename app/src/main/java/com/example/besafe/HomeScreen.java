@@ -70,16 +70,24 @@ public class HomeScreen extends AppCompatActivity {
         sos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                
                 //retreiving sos message
-                Cursor c=myDatabase.rawQuery("SELECT * FROM sosMsg",null);
-                //storing starting index
-                int messageIndex=c.getColumnIndex("message");
+                Cursor c;
+               try{
+                  c=myDatabase.rawQuery("SELECT * FROM sosMsg",null);
+                   //storing starting index
+                   int messageIndex=c.getColumnIndex("message");
 
-                 c.moveToLast();
-                //Toast.makeText(EditSOSMessage.this, c.getString(messageIndex), Toast.LENGTH_SHORT).show();
-                message=c.getString(messageIndex);
-                c.close();
+                   c.moveToLast();
+                   //Toast.makeText(EditSOSMessage.this, c.getString(messageIndex), Toast.LENGTH_SHORT).show();
+                   message=c.getString(messageIndex);
+                   c.close();
+               }
+               catch(Exception e)
+               {
+                   message="Help me! It's an emergency!";
+               }
+
                 if(ActivityCompat.checkSelfPermission(HomeScreen.this,Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED&&
                         ActivityCompat.checkSelfPermission(HomeScreen.this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED)
                 {
@@ -97,6 +105,7 @@ public class HomeScreen extends AppCompatActivity {
                     return;
                 }
                 int ContactIndex=res.getColumnIndex("Contact");
+
                 res.moveToFirst();
                 while(!res.isAfterLast())
                 {
