@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(ContextCompat.checkSelfPermission(MainActivity.this,
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE,Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.SEND_SMS},4);
+       // ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},1);
+        //ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},3);
+        /*if(ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
             {
                 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},1);
@@ -40,18 +43,18 @@ public class MainActivity extends AppCompatActivity {
         if(ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},1);
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.ACCESS_FINE_LOCATION},2);
         }
         if(ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},3);
         }
         if(ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},1);
-        }
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},4);
+        }*/
         SharedPreferences sharedPreferences=this.getSharedPreferences("com.example.besafe", Context.MODE_PRIVATE);
 
         if(!sharedPreferences.contains("status"))
