@@ -47,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
         {
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.SEND_SMS},1);
         }
+        if(ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},1);
+        }
         SharedPreferences sharedPreferences=this.getSharedPreferences("com.example.besafe", Context.MODE_PRIVATE);
 
         if(!sharedPreferences.contains("status"))
