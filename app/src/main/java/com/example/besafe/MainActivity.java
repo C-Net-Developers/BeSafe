@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.name, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
 
-        awesomeValidation.addValidation(this,R.id.phoneNumber,"[5-9]{1}[0-9]{9}$",R.string.invalid_mobile);
+        awesomeValidation.addValidation(this,R.id.phoneNumber,RegexTemplate.NOT_EMPTY,R.string.invalid_mobile);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
